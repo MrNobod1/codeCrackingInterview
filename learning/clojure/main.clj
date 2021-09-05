@@ -144,3 +144,80 @@ vector
 ( (fn [obj] (.length obj)) "Hello")
 
 ( #(.length %) "Hello")
+
+; We can use (not) function to negate some value.
+(let [x false]
+    (not x))
+
+; We can use if condition to sout if a value is greater than anything
+(let [x 17 y 20]
+    (if (> x 18) (println "You are old") (println "You are young"))
+    (assert (not (< y x)))
+    )
+
+; Looping from the value from to the value to printing Hello world.
+(defn looping [from to] (
+    (when (< from to) (println "Hello world") (looping (inc from) to))
+))
+
+; We are using the if condition to print hello world when in range and false when not.
+(defn looping_if [from to] (
+    (if (< from to) (do (println "Hello world") (looping (inc from) to)) false)
+))
+
+(defn ^Integer s [^Integer a ^Integer b] (+ a b))
+
+(s 1 2)
+
+; (looping_if 0 10)
+
+; Collections
+
+(get [1 2 3] 1) ; returns 2
+(get [false true "Hello" 1] 0) ; returns false
+(get [0 1] 3) ; returns nil
+
+(count [1 2 3]) ; returns 3 because is the amount of elements in the vector
+
+; how to construct a vector
+(vector 1 2 3) ; returns [1 2 3]
+
+(conj [1 2 3] [4 5 6] 7 8) ; returns [1 2 3 [4 5 6] 7 8]
+
+(def v [1 2 3])
+(conj v 4 5 6) ; [1 2 3 4 5 6]
+v ; returns [1 2 3]
+
+; Lists are sequential linked lists that add elements to the head of the list instead to the tail.
+(def cards '(10 :ace :jack 9)) ; we must quote the list, because we dont want autoevaluation.
+(first cards) ; Lists are not indexed, so we have to use first and rest. first always return first element of cards.
+(rest cards)
+
+(conj cards :queen) ; It will return (:queen 10 :ace :jack 9)
+
+(peek cards) ; It will return the head of the linked list: 10
+
+(pop cards) ; It will return the rest of cards as a linked list
+
+(def players #{"Hello" "second" "last"})
+
+(conj players "other") ; Returns #{"Hello" "second" "last" "other"}
+(disj players "Hello") ; Returns #{"second" "last"}
+(contains? players "Hello") ; Returns true
+(conj (sorted-set) "Noe" "Ivan" "Vir" "Freddy") ; Returns #{"Freddy" "Ivan" "Noe" "Vir"}
+(into players [1 2 3]) ; returns a list of the type of the first argument with the values of the second.
+
+(let [x (vector 1 2 3)]
+    (println (into x '(4 5 6)))
+    (println (into x #{4 5 7}))
+)
+
+; This is a java.util.List. We can use the instance? function to test if the structure is an instance of java.util.List.
+(instance? java.util.List (list 1 2 3))
+(class (vector 1 2 3)) ; returns clojure.lang.PersistentVector
+
+; store a person object with city and name attributes.
+(def person { :city "Ourense" :name "Ivan" })
+
+; get the value for the attribute city in person object
+(:city person)
