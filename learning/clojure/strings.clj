@@ -1,3 +1,4 @@
+; https://clojure.github.io/clojure/clojure.string-api.html
 ; Functions in clojure.string namespace
 ; blank?
 ; capitalize

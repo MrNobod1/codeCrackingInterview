@@ -221,3 +221,16 @@ v ; returns [1 2 3]
 
 ; get the value for the attribute city in person object
 (:city person)
+
+; We can use the modifiers:
+;   :let [binding-form expr]
+;   :while test
+;   :when  test
+; It returns a list of vectors with the odd numbers. ([1] [3] [5] [7])
+(defn looping-odd-numbers [^Integer from ^Integer to]
+    (if (> from to) 
+        false
+        (for [y (range from to) :when (odd? y)] [y])))
+
+; It returns a clojure.lang.lazySeq
+(looping-odd-numbers 1 10) ; (class (looping-odd-numbers 1 10))
