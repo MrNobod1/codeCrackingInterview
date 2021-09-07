@@ -42,5 +42,8 @@ y)
 (assert (= (list 1 2 3) '(1 2 3)))
 
 ; (map f) (map f coll) (map f c1 c2) (map f c1 c2 c3) (map f c1 c2 c3 & colls)
-(reduce + (map inc [1 2 3 4])) ; Returns 14
-(map #(* % %) (range 100)) ; returns a list of values from 0 to 100.
+(reduce + (map inc [1 2 3 4]))      ; Returns 14
+(map #(* % %) (range 100))          ; returns a list of values from 0 to 100.
+(map #(* %1 %2) [1 2 3] [4 5 6])    ; returns a vector of the values cross 2
+(map * (range 1 4) (range 4 7))     ; This returns the same as the previous expression
+(class (map * [1 2 3] [4 5 6]))     ; returns a clojure.lang.LazySeq
