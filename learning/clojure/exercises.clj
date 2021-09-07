@@ -44,3 +44,4 @@
 (defn triplicate [function] (repeat 3 (function)))
 
 (assert (= '("Hello" "Hello" "Hello") (triplicate (fn [] "Hello"))))
+

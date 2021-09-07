@@ -162,7 +162,7 @@ vector
 
 ; We are using the if condition to print hello world when in range and false when not.
 (defn looping_if [from to] (
-    (if (< from to) (do (println "Hello world") (looping (inc from) to)) false)
+    (if (< from to) (do (println "Hello world") (looping_if (inc from) to)) false)
 ))
 
 (defn ^Integer s [^Integer a ^Integer b] (+ a b))
