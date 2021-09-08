@@ -8,3 +8,14 @@
 
 (doseq [x (range 0 6)
     :let [y (print_number_name x)]])
+
+; When the condition is false, it will return directly nil.
+(when true
+    (print "we ")
+    (print "can ")
+    (print "write a lot of ")
+    (print "statements in the same ")
+    (print "block of code"))
+
+; Same as if omitting the else part
+(assert (= (if false "hello") nil)) ; it returns nil, but the assert is true

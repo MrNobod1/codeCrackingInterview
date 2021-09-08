@@ -1,0 +1,1 @@
+(defn howManyLightsabersDoYouOwn [a] (get {"Zach" 18} a 0))

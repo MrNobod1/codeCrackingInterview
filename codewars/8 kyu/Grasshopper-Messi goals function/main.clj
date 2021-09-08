@@ -1,0 +1,11 @@
+(def goals +)
+(defn goals_1 [a b c] (+ a b c))
+(defn goals_2 [a b c] (+ a (+ b c)))
+(defn goals_3 [& a] (reduce + a))
+(defn goals_4 [& a] (apply + a))
+
+(assert (= (goals 1 2 3) 6))
+(assert (= (goals_1 1 2 3) 6))
+(assert (= (goals_2 1 2 3) 6))
+(assert (= (goals_3 1 2 3) 6))
+(assert (= (goals_4 1 2 3) 6))
