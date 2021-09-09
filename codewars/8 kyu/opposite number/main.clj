@@ -1,0 +1,1 @@
+(def opposite #(* % -1))

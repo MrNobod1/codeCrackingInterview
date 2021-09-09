@@ -1,0 +1,1 @@
+(def greet #(if (= %1 %2) "Hello boss" "Hello guest"))
